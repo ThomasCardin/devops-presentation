@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: devops-presentation-ingress
+  namespace: devops-presentation-ns
+  labels:
+    app.kubernetes.io/name: devops-presentation-ingress
+    app.kubernetes.io/instance: devops-presentation-ingress-01
+    app.kubernetes.io/version: "v1"
+    app.kubernetes.io/component: ingress
+    app.kubernetes.io/part-of: nothing
+    app.kubernetes.io/managed-by: CEDILLE
+spec:
+  rules:
+  - host: presentation.com
+    http:
+      paths:
+      - path: /hello
+        pathType: Prefix
+        backend:
+          service:
+            name: devops-presentation-service
+            port:
+              number: 8080
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: devops-presentation-service
+            port:
+              number: 8080
