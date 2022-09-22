@@ -18,10 +18,11 @@ COPY *.go ./
 RUN go build -o /helloworld
 
 # Step --. Set env variable
-ENV var=hello_from_docker
+ENV K8S_HELLO_WORLD=$K8S_HELLO_WORLD
+ENV DOCKER_HELLO_WORLD="hello from docker"
 
 # Step 6. Expose port to the docker network
-EXPOSE 8080
+EXPOSE $PORT
 
 # Step 7. Run the project
 CMD ["/helloworld"]
