@@ -18,14 +18,7 @@ func main() {
 		helloWorldDocker = "docker env not found"
 	}
 
-	// For readinessProbe
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "oui",
-		})
-	})
-
-	r.GET("/hello", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message":        "from main.go",
 			"docker_message": helloWorldK8S,
