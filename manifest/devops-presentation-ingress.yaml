@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: devops-presentation-ingress
   namespace: devops-presentation-ns
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
   labels:
     app.kubernetes.io/name: devops-presentation-ingress
     app.kubernetes.io/instance: devops-presentation-ingress-01
@@ -12,16 +14,9 @@ metadata:
     app.kubernetes.io/managed-by: CEDILLE
 spec:
   rules:
-  - host: presentation.com
+  - host: devops-presentation.com
     http:
       paths:
-      - path: /hello
-        pathType: Prefix
-        backend:
-          service:
-            name: devops-presentation-service
-            port:
-              number: 8080
       - path: /
         pathType: Prefix
         backend:
