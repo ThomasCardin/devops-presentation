@@ -22,7 +22,7 @@ ENV K8S_HELLO_WORLD=$K8S_HELLO_WORLD
 ENV DOCKER_HELLO_WORLD="hello from docker"
 
 # Step 6. Expose port to the docker network
-EXPOSE $PORT
+EXPOSE 8080
 
 # Step 7. Run the project
 CMD ["/helloworld"]
