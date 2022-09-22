@@ -13,6 +13,7 @@ metadata:
     app.kubernetes.io/part-of: nothing
     app.kubernetes.io/managed-by: CEDILLE
 spec:
+  ingressClassName: nginx
   rules:
   - host: devops-presentation.com
     http:
@@ -21,6 +22,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: devops-presentation-service
+            name: devops-presentation-load-balancer
             port:
               number: 8080
