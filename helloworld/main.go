@@ -21,13 +21,13 @@ func main() {
 	// For readinessProbe
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "200 ok",
+			"message": "oui",
 		})
 	})
 
 	r.GET("/hello", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message":        "pong",
+			"message":        "from main.go",
 			"docker_message": helloWorldK8S,
 			"k8s_message":    helloWorldDocker,
 		})
